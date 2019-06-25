@@ -2,7 +2,7 @@ from urllib.request import urlopen as ureq
 from bs4 import BeautifulSoup as soup
 my_url = 'http://www.unomotos.com.ar/'
 
-# abrir conexión, agarrar la página req
+# abrir conexión, agarrar la página ureq
 uClient = ureq(my_url)
 page_html = uClient.read()
 uClient.close()
