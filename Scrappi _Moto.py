@@ -19,7 +19,7 @@ def select_producto(html):
     page_soup = soup(html, "html.parser")
 
     # Agarra cada grupo de producto
-    contenedores = page_soup.findAll("div",{"class":"module sombra"})
+    contenedores = page_soup.findAll("div",{"class":"lista-moto"})
     contenedor = contenedores[0]  #Esta linea no la estas usando la sobreescribes mas adelante 
 
     # Guardamos la data en una lista para poder usarala luego
@@ -57,13 +57,14 @@ def escribir_achivo(motos):
     with open(OUT_FILE, 'w') as f:
         # El modulo de CSV tiene un metodo para escribir archivos diccionarios, recibe los cambios como una lista
 
+        cantidad = len(motos)
         escritor = csv.DictWriter(f,fieldnames=['moto', 'precio'])
         escritor.writeheader()
         for moto in motos:
             escritor.writerow(moto)
             imprimir_dato(moto)
 
-    return "Escrito con Exito"
+    return f"Escrito con Exito {cantidad} registros"
 ''' La aplicación debe tener un solo punto de entrada, 
 ese sera la funcion Main donde se ejecuta todo
 Todo el codigo se organiza en funciones para hacerlo mas
