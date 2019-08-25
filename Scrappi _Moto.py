@@ -11,7 +11,7 @@ def agarrar_pagina():
     uClient = ureq(MY_URL)
     page_html = uClient.read()
     uClient.close()
-    # Se retorna el string 
+    # Se retorna el string
     return page_html
 
 def select_producto(html):
@@ -20,7 +20,6 @@ def select_producto(html):
 
     # Agarra cada grupo de producto
     contenedores = page_soup.findAll("div",{"class":"lista-moto"})
-    contenedor = contenedores[0]  #Esta linea no la estas usando la sobreescribes mas adelante 
 
     # Guardamos la data en una lista para poder usarala luego
     motos=[]
@@ -41,7 +40,7 @@ def select_producto(html):
 def imprimir_dato(dic):
     '''funcion para implimir recibe un diccionario'''
     # Puedes implimirlo como lo tenias antes asi
-    print("moto: " + dic['moto']) 
+    print("moto: " + dic['moto'])
     print("precio: " + dic['precio'])
 
     print('~'*20)
@@ -65,7 +64,7 @@ def escribir_achivo(motos):
             imprimir_dato(moto)
 
     return f"Escrito con Exito {cantidad} registros"
-''' La aplicación debe tener un solo punto de entrada, 
+''' La aplicación debe tener un solo punto de entrada,
 ese sera la funcion Main donde se ejecuta todo
 Todo el codigo se organiza en funciones para hacerlo mas
 modular y reutilizable
@@ -80,4 +79,3 @@ def main():
 # Punto de entrada
 if __name__ == '__main__':
     main()
-
